@@ -21,4 +21,152 @@
 
     <string name="skip_login">Skip Login</string>
     <string name="sign_up">Sign Up</string>
+    <string name="img_desc">Preview of the Sport</string>
+
+    <string-array
+        name="sports_lessons_names">
+        <item>Afro Dance</item>
+        <item>Aikido</item>
+        <item>Akrobatik</item>
+        <item>Alexander F.M. Technik</item>
+        <item>Antara</item>
+        <item>Aqua Fitness</item>
+        <item>Artistik</item>
+        <item>Autogenes Training</item>
+        <item>Badminton</item>
+        <item>Ballett</item>
+        <item>Basketball</item>
+        <item>Bauchtanz</item>
+        <item>Beach Soccer</item>
+        <item>Beachvolleyball</item>
+        <item>Big Air</item>
+        <item>Body ART</item>
+        <item>Body Balance</item>
+        <item>Body Combat</item>
+        <item>Bodyfit 50 plus</item>
+        <item>Bodyforming</item>
+        <item>Bogensport</item>
+        <item>Bootcamp</item>
+        <item>Bouldern</item>
+        <item>Boxen</item>
+        <item>Breakdance</item>
+        <item>Budo</item>
+        <item>Capoeira</item>
+        <item>Cardio Circuit</item>
+        <item>Cardiotraining</item>
+        <item>Chi Ball</item>
+        <item>Circuit Training</item>
+        <item>Cross Fit</item>
+        <item>Curling</item>
+        <item>Cycling Class</item>
+        <item>Dance Aerobic</item>
+        <item>Drytooling</item>
+        <item>Eishockey</item>
+        <item>Fechten</item>
+        <item>Feldenkrais</item>
+        <item>Flag Football</item>
+        <item>Flamenco</item>
+        <item>Functional Group Training (FGT)</item>
+        <item>Fussball</item>
+        <item>Geräteturnen</item>
+        <item>Gleitschirmfliegen</item>
+        <item>Golf</item>
+        <item>Handball</item>
+        <item>Hochtouren</item>
+        <item>Inline Skating</item>
+        <item>Jazz Dance</item>
+        <item>Jonglieren</item>
+        <item>Judo</item>
+        <item>Ju-Jitsu / Selbstverteidigung</item>
+        <item>Kampfsport</item>
+        <item>Kanu</item>
+        <item>Karate-Do</item>
+        <item>Kickboxen</item>
+        <item>Kinesiologie</item>
+        <item>Kitesurfen</item>
+        <item>Klettern</item>
+        <item>Kondi</item>
+        <item>Krafttraining</item>
+        <item>Kung Fu</item>
+        <item>Lacrosse</item>
+        <item>Langlauf</item>
+        <item>Manege</item>
+        <item>Massage</item>
+        <item>M.A.X.</item>
+        <item>Meditation + Achtsamkeit</item>
+        <item>Modern Dance</item>
+        <item>Mountainbike</item>
+        <item>Muscle Pump</item>
+        <item>New Style Hustle</item>
+        <item>Orientierungslauf</item>
+        <item>Paddeln</item>
+        <item>Parkour</item>
+        <item>Pilates</item>
+        <item>Power Yoga</item>
+        <item>Prüfungsvorbereitung</item>
+        <item>QiGong</item>
+        <item>Ragga</item>
+        <item>Reiten</item>
+        <item>Rennvelo</item>
+        <item>Rowing Class</item>
+        <item>Rudern</item>
+        <item>Rückenfit</item>
+        <item>Running</item>
+        <item>Salsa</item>
+        <item>Schach</item>
+        <item>Schiessen</item>
+        <item>Schneeschuhwandern</item>
+        <item>Schwimmen</item>
+        <item>Segelfliegen</item>
+        <item>Segeln</item>
+        <item>Seniorensport</item>
+        <item>Shiatsu</item>
+        <item>ShinAiki</item>
+        <item>Shotokan Karate</item>
+        <item>Skifahren</item>
+        <item>Ski-/Snowboard-/Freeridetouren</item>
+        <item>Slacklinen</item>
+        <item>Snowboard</item>
+        <item>Snowkiten</item>
+        <item>Squash</item>
+        <item>Standard-/Latintänze</item>
+        <item>Standup Paddeln</item>
+        <item>Step Aerobic</item>
+        <item>Stepptanz</item>
+        <item>Stomping</item>
+        <item>Street Dance</item>
+        <item>Stretchund Relax</item>
+        <item>T-BOW</item>
+        <item>Taekwondo</item>
+        <item>TaiChi</item>
+        <item>Tango</item>
+        <item>Tanzworkshop</item>
+        <item>Tauchen</item>
+        <item>Telemark</item>
+        <item>Tennis</item>
+        <item>Tischtennis</item>
+        <item>Toneund Stretch</item>
+        <item>Touch Rugby</item>
+        <item>Trampolin</item>
+        <item>Triathlon</item>
+        <item>Trommeln</item>
+        <item>TRX Suspension Training</item>
+        <item>Tuchakrobatik</item>
+        <item>Turnen</item>
+        <item>Ultimate Frisbee</item>
+        <item>Unihockey</item>
+        <item>Volleyball</item>
+        <item>Wakeboard</item>
+        <item>Wakesurf</item>
+        <item>Wandern</item>
+        <item>Wasserball</item>
+        <item>Wasserski</item>
+        <item>Wasserspringen</item>
+        <item>Wellenreiten</item>
+        <item>Windsurfen</item>
+        <item>Yoga</item>
+        <item>Zumba</item>
+    </string-array>
+
+
 </resources>

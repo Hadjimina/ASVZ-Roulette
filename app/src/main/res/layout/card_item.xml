@@ -1,0 +1,48 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/card_view"
+android:layout_width="match_parent"
+android:layout_height="280dp"
+android:layout_margin="8dp">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:contentDescription="@string/img_desc"
+        android:id="@+id/thumbnail"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/default_img" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/thumbnail"
+        android:layout_alignTop="@id/thumbnail"
+        android:layout_alignEnd="@id/thumbnail"
+        android:layout_alignBottom="@id/thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/thumbnail"
+        android:layout_gravity="bottom"
+        android:maxLines="1"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="165dp"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:padding="8dp"
+        android:textColor="#666"
+        android:textSize="14sp" />
+
+</RelativeLayout>
+</android.support.v7.widget.CardView>
