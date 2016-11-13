@@ -31,9 +31,10 @@ android:layout_margin="8dp">
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         android:paddingTop="165dp"
-        android:textColor="#fff"
+        android:textColor="#222"
         android:textStyle="bold"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        />
 
     <TextView
         android:id="@+id/description"
