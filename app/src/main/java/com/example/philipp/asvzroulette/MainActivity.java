@@ -40,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(false);
+        if (ab != null) {
+            ab.setDisplayHomeAsUpEnabled(false);
+        }
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
@@ -57,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+    //Disable back button
+    @Override
+    public void onBackPressed() {}
 
     //Options Menu
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -125,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 
-        public ViewPagerAdapter(FragmentManager manager) {
+        ViewPagerAdapter(FragmentManager manager) {
             super(manager);
         }
 
@@ -139,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
             return mFragmentList.size();
         }
 
-        public void addFrag(Fragment fragment, String title) {
+        void addFrag(Fragment fragment, String title) {
             mFragmentList.add(fragment);
             mFragmentTitleList.add(title);
         }

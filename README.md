@@ -1,5 +1,2 @@
 # ASVZ-Roulette
-
-höhö! 
-
-Brudi was isch das für e sprach?
+Gets a random ASVZ sport activity based on your preferences.
