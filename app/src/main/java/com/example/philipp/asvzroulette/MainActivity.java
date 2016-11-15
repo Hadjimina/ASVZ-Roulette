@@ -11,6 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -88,14 +89,25 @@ public class MainActivity extends AppCompatActivity {
 
     //Generate random lesson
     public SportsLesson generateRandomSportlesson(){
-        String[] possibleLessons = getResources().getStringArray(R.array.sports_lessons_names);
-        int max = possibleLessons.length;
-        int min = 0;
+        //check for beer probability
+        //TODO add settings button for beer
+        Random generator = new Random();
+        int q = generator.nextInt(3) + 1;
+        Log.v("V", String.valueOf(q));
+        if (q == 1){
+            return new SportsLesson(getApplicationContext(), "Beer");
 
-        Random r = new Random();
-        int i = r.nextInt(max - min + 1) + min;
+        }else {
+            //Get lesson
+            String[] possibleLessons = getResources().getStringArray(R.array.sports_lessons_names);
+            int max = possibleLessons.length;
+            int min = 0;
 
-        return new SportsLesson(getApplicationContext(), possibleLessons[i]);
+            Random r = new Random();
+            int i = r.nextInt(max - min + 1) + min;
+
+            return new SportsLesson(getApplicationContext(), possibleLessons[i]);
+        }
     }
 
     //Disable back button
