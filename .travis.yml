@@ -5,10 +5,15 @@ android:
     - build-tools-24.0.2
     - android-24
     - platform-tools
-    - extra-android-support # because I'm use support library
-    - extra-android-m2repository # because I'm use support library
+    - extra-android-support
+    - extra-android-m2repository
+    - extra-google-m2repository
+    - extra-google-google_play_services
+    - addon-google_apis-google-24
   licenses:
     - '.+'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
 
 sudo: required
 
