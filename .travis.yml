@@ -9,8 +9,11 @@ android:
     - extra-android-m2repository
     - extra-google-m2repository
     - extra-google-google_play_services
+    - addon-google_apis-google-24
   licenses:
     - '.+'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
 
 sudo: required
 
