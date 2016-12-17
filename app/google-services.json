@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "967128661796",
+    "firebase_url": "https://asvz-roulette-a98ff.firebaseio.com",
+    "project_id": "asvz-roulette-a98ff",
+    "storage_bucket": "asvz-roulette-a98ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:967128661796:android:75733c7854ea80be",
+        "android_client_info": {
+          "package_name": "com.example.philipp.asvzroulette"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "967128661796-3jnsupporkknugd5hd3d7iu1mhncktg8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDPRf85xD8djVhtH4Af7KrOljCwJtvXzg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
