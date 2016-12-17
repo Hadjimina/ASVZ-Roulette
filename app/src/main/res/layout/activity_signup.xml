@@ -10,4 +10,126 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.philipp.asvzroulette.SignupActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:id="@+id/new_account"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Neuer Account"
+        android:textSize="16pt"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Vorname"
+        android:ems="10"
+        android:layout_below="@+id/new_account"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="53dp"
+        android:id="@+id/editVorname" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Name"
+        android:ems="10"
+        android:id="@+id/editName"
+        android:layout_below="@+id/editVorname"
+        android:layout_alignStart="@+id/editVorname"
+        android:layout_marginTop="20dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="Passwort"
+        android:ems="10"
+        android:layout_below="@+id/editName"
+        android:layout_alignStart="@+id/editName"
+        android:layout_marginTop="20dp"
+        android:id="@+id/editPassword" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="Erneut Passwort"
+        android:ems="10"
+        android:layout_below="@+id/editPassword"
+        android:layout_alignStart="@+id/editPassword"
+        android:layout_marginTop="20dp"
+        android:id="@+id/editCheckPassword" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="Email"
+        android:ems="10"
+        android:layout_below="@+id/editCheckPassword"
+        android:layout_alignEnd="@+id/editCheckPassword"
+        android:layout_marginTop="20dp"
+        android:id="@+id/editEmail" />
+
+    <Button
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:text="Fertig!"
+        android:textSize="24dp"
+        android:minWidth="88dp"
+        android:height="36dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/editEmail"
+        android:elevation="2dp"
+        android:id="@+id/button"
+        />
+
+    <TextView
+        android:text="Der Name ist zu lang."
+        style="@style/ErrorMessageSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editVorname"
+        android:layout_alignStart="@+id/editVorname"
+        android:layout_marginTop="32dp"
+        android:id="@+id/errorForename" />
+
+    <TextView
+        android:text="Der Name ist zu lang."
+        style="@style/ErrorMessageSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editName"
+        android:layout_alignStart="@+id/editName"
+        android:layout_marginTop="32dp"
+        android:id="@+id/errorSurname" />
+
+    <TextView
+        android:text="Die Passwörter stimmen nicht überein."
+        style="@style/ErrorMessageSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editPassword"
+        android:layout_alignStart="@+id/editPassword"
+        android:layout_marginTop="32dp"
+        android:id="@+id/errorPassword" />
+
+    <TextView
+        android:text="Das Passwort darf höchstens 20 Zeichen lang sein."
+        style="@style/ErrorMessageSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editPassword"
+        android:layout_alignStart="@+id/editPassword"
+        android:layout_marginTop="32dp"
+        android:id="@+id/errorPassword2" />
+
+
 </RelativeLayout>

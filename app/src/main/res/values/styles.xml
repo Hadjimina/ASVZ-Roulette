@@ -13,4 +13,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ErrorMessageSignUp" parent="@android:style/TextAppearance">
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">#BB2200</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+
 </resources>

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ASVZ-Roulette.iml" filepath="$PROJECT_DIR$/ASVZ-Roulette.iml" />
       <module fileurl="file://$PROJECT_DIR$/ASVZRoulette.iml" filepath="$PROJECT_DIR$/ASVZRoulette.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
