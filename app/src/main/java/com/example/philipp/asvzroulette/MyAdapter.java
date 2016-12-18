@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,14 +18,32 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         CardView mCardView;
         TextView mTextViewTitle,mTextViewDesc;
         ImageView mImageView;
+        Button mButtonDone,mButtonBlacklist;
 
         MyViewHolder(View v) {
             super(v);
 
+            mButtonDone = (Button) v.findViewById(R.id.buttonDone);
+            mButtonBlacklist = (Button) v.findViewById(R.id.buttonBlacklist);
             mCardView = (CardView) v.findViewById(R.id.card_view);
             mTextViewTitle = (TextView) v.findViewById(R.id.title);
             mTextViewDesc = (TextView) v.findViewById(R.id.description);
             mImageView = (ImageView) v.findViewById(R.id.thumbnail);
+
+            mButtonBlacklist.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Get Blacklist
+
+                }
+            });
+
+            mButtonDone.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
         }
     }
 
@@ -41,6 +60,8 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         // set the view's size, margins, paddings and layout parameters
         return new MyViewHolder(v);
     }
+
+
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
