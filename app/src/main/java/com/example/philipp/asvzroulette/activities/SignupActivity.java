@@ -1,4 +1,4 @@
-package com.example.philipp.asvzroulette;
+package com.example.philipp.asvzroulette.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.philipp.asvzroulette.authenticator.HashedPassword;
+import com.example.philipp.asvzroulette.R;
+import com.example.philipp.asvzroulette.javaClassFiles.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

@@ -14,23 +14,23 @@
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme">
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.MainActivity">
 
         </activity>
 
         <activity
-            android:name=".SettingsActivity"
-            android:parentActivityName=".MainActivity"
+            android:name=".activities.SettingsActivity"
+            android:parentActivityName=".activities.MainActivity"
             android:theme="@style/MyMaterialTheme">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.philipp.asvzroulette.MainActivity" />
+                android:value="com.example.philipp.asvzroulette.activities.MainActivity" />
 
         </activity>
 
-        <activity android:name=".LoginActivity">
+        <activity android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,7 +38,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".activities.SignupActivity"></activity>
     </application>
 
 </manifest>

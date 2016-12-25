@@ -1,6 +1,7 @@
-package com.example.philipp.asvzroulette;
+package com.example.philipp.asvzroulette.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
@@ -11,7 +12,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,6 +19,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import com.example.philipp.asvzroulette.helper.HelperClass;
+import com.example.philipp.asvzroulette.fragments.OneFragment;
+import com.example.philipp.asvzroulette.R;
+import com.example.philipp.asvzroulette.javaClassFiles.SportsLesson;
+import com.example.philipp.asvzroulette.fragments.ThreeFragment;
+import com.example.philipp.asvzroulette.fragments.TwoFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,12 +43,26 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.ic_people_white
     };
     private ViewPagerAdapter adapter;
-    private ArrayList<SportsLesson> currentLessons;
+    private ArrayList<SportsLesson> currentLessons,blacklistLessons,doneLessons;
+    private String beerString;
+    private HelperClass helperClass;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Shared prefs for beer
+        SharedPreferences prefs = getSharedPreferences("Beer", MODE_PRIVATE);
+        String restoredText = prefs.getString("beer", null);
+        if (restoredText != null) {
+            beerString = prefs.getString("beer", "false");//"No name defined" is the default value.
+
+        }
+
+        //get Helper class object
+        this.helperClass = new HelperClass();
 
 
 
@@ -60,55 +81,75 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
 
-
-        //setup currentLessons ArrayList & initialize
+        //setup Lessons ArrayLists & initialize
         currentLessons = new ArrayList<>();
-        SportsLesson l1 = new SportsLesson(getApplicationContext(), "Ballett");
-        currentLessons.add(l1);
+        helperClass.loadArray(getApplicationContext(),currentLessons,"currentLessons");
+        blacklistLessons = new ArrayList<>();
+        helperClass.loadArray(getApplicationContext(),blacklistLessons,"blacklistLessons");
+        doneLessons = new ArrayList<>();
+        helperClass.loadArray(getApplicationContext(),doneLessons,"DoneLessons");
+
+
+
 
         //fab setup & onclick
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                SportsLesson randLesson = generateRandomSportlesson();
+                SportsLesson randLesson = generateRandomSportlesson(helperClass);
                 currentLessons.add(randLesson);
                 Toast.makeText(MainActivity.this, "You will be doing : "+randLesson.title, Toast.LENGTH_SHORT).show();
 
                 //invoke fragment recyclerview update
                 OneFragment fragment = (OneFragment) adapter.getRegisteredFragment(0);
                 fragment.updateCards();
+                helperClass.saveArray(getApplicationContext(),currentLessons,"currentLessons");
             }
         });
     }
 
-    //Helper function to pass CurrentLessons to "OneFragmen"
+    //Save currentLesson,BlackList & DoneLessons onPause
+    @Override
+    protected void onPause() {
+        super.onPause();
+        helperClass.saveArray(getApplicationContext(),currentLessons,"currentLessons");
+        helperClass.saveArray(getApplicationContext(),blacklistLessons,"blacklistLessons");
+        helperClass.saveArray(getApplicationContext(),doneLessons,"doneLessons");
+    }
+
+    //Helper functions to pass Lessons to Fragments
     public ArrayList<SportsLesson> getCurrentLessons() {
         return currentLessons;
     }
+    public ArrayList<SportsLesson> getDoneLessons() {
+        return doneLessons;
+    }
+    public ArrayList<SportsLesson> getBlacklistLessons() {
+        return blacklistLessons;
+    }
 
     //Generate random lesson
-    public SportsLesson generateRandomSportlesson(){
+    public SportsLesson generateRandomSportlesson(HelperClass helperClass){
         //check for beer probability
         //TODO add settings button for beer
-        Random generator = new Random();
-        int q = generator.nextInt(3) + 1;
-        Log.v("V", String.valueOf(q));
-        if (q == 1){
-            return new SportsLesson(getApplicationContext(), "Beer");
+
+        if ( helperClass.beerQuestion(beerString)){
+            return new SportsLesson(getApplicationContext(), "Beer","currentLessons");
 
         }else {
             //Get lesson
             String[] possibleLessons = getResources().getStringArray(R.array.sports_lessons_names);
-            int max = possibleLessons.length;
+            int max = possibleLessons.length -1;
             int min = 0;
 
             Random r = new Random();
             int i = r.nextInt(max - min + 1) + min;
 
-            return new SportsLesson(getApplicationContext(), possibleLessons[i]);
+            return new SportsLesson(getApplicationContext(), possibleLessons[i],"currentLessons");
         }
     }
+
 
     //Disable back button
     @Override
