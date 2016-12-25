@@ -9,10 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 
 class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
-    private ArrayList<SportsLesson> mDataset;
+    static ArrayList<SportsLesson> mDataset;
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
         CardView mCardView;
@@ -35,13 +36,21 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 public void onClick(View v) {
                     //Get Blacklist
 
+                    //TODO remove item from currenLesson& put into Blacklist& update current list
+                    String lessonName = (String) mTextViewTitle.getText();
+                    Iterator<SportsLesson> iter = mDataset.iterator();
+                    while (iter.hasNext()){
+                        if (iter.next().title == lessonName){
+                            mDataset.remove(iter.next());
+                        }
+                    }
                 }
             });
 
             mButtonDone.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    //change type of lesson
                 }
             });
         }

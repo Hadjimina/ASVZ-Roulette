@@ -24,54 +24,38 @@ public class HelperClass {
         }
     }
 
+
+
     //helperfunction to retrive all current lessons
-    //8!!! currentLessons deprecated !!! should be current list or something
-    public void loadArray(Context mCont,ArrayList<?> currentLessons,String arrayName)
+   public void loadArray(Context mCont, ArrayList<SportsLesson> lessons, String arrayName)
     {
         SharedPreferences sp = mCont.getSharedPreferences(arrayName, MODE_PRIVATE);
-        currentLessons.clear();
-        int size = sp.getInt("Status_size", 0);
+        lessons.clear();
+        int size = sp.getInt(arrayName+" Status_size", 0);
 
         for(int i=0;i<size;i++)
         {
-            if (arrayName.equals("currenLessons")){
-                ArrayList<SportsLesson> sports = (ArrayList<SportsLesson>) currentLessons;
-                sports.add(new SportsLesson(mCont,sp.getString("Status_" + i, null)));
-            }else{
-                ArrayList<String> noneSports = (ArrayList<String>) currentLessons;
-                noneSports.add(sp.getString("Status_" + i, null));
-            }
-
+            lessons.add(new SportsLesson(mCont,sp.getString("Status_" + i,null), arrayName));
         }
 
     }
 
     //helper function to save to current lessons
-    public boolean saveArray(Context mCont,ArrayList<?> currentLessons,String arrayName)
+    public boolean saveArray(Context mCont, ArrayList<SportsLesson> lessons, String arrayName)
     {
 
         SharedPreferences sp = mCont.getSharedPreferences(arrayName, MODE_PRIVATE);
         SharedPreferences.Editor mEdit1 = sp.edit();
 
-        mEdit1.putInt("Status_size", currentLessons.size());
+        mEdit1.putInt(arrayName+" Status_size", lessons.size());
 
-        for(int i=0;i<currentLessons.size();i++)
+        for(int i=0;i<lessons.size();i++)
         {
             mEdit1.remove("Status_" + i);
-
-            if (arrayName.equals("currentLessons")){
-                SportsLesson sportsLesson = (SportsLesson)currentLessons.get(i);
-                mEdit1.putString("Status_" + i, sportsLesson.title);
-            }
-            else {
-                String string = (String)currentLessons.get(i);
-                mEdit1.putString("Status_" + i, string);
-            }
+            mEdit1.putString("Status_" + i, lessons.get(i).title);
 
         }
 
         return mEdit1.commit();
     }
-
-
 }

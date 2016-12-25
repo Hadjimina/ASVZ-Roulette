@@ -3,7 +3,7 @@ package com.example.philipp.asvzroulette;
 import android.content.Context;
 
 class SportsLesson {
-    String title,desc;
+    String title,desc,type;
     int coverImg;
 
     private int[] Icons = {
@@ -12,9 +12,12 @@ class SportsLesson {
 
     };
 
-    SportsLesson(Context c, String title){
+    SportsLesson(Context c, String title,String type){
         this.title = title;
         String[] SportNames = c.getResources().getStringArray(R.array.sports_lessons_names);
+
+        //Set type of lesson
+        this.type = type;
 
         //automagically sets image
         coverImg = title == "Ballett" ? Icons[0]:Icons[1];

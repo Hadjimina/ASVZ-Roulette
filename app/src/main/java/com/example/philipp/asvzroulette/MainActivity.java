@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.ic_people_white
     };
     private ViewPagerAdapter adapter;
-    private ArrayList<SportsLesson> currentLessons;
+    private ArrayList<SportsLesson> currentLessons,blacklistLessons,doneLessons;
     private String beerString;
 
     @Override
@@ -70,9 +70,15 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
 
-        //setup currentLessons ArrayList & initialize
+        //setup Lessons ArrayLists & initialize
         currentLessons = new ArrayList<>();
         helperClass.loadArray(getApplicationContext(),currentLessons,"currentLessons");
+        blacklistLessons = new ArrayList<>();
+        helperClass.loadArray(getApplicationContext(),blacklistLessons,"blacklistLessons");
+        doneLessons = new ArrayList<>();
+        helperClass.loadArray(getApplicationContext(),doneLessons,"DoneLessons");
+
+
 
 
         //fab setup & onclick
@@ -87,11 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 //invoke fragment recyclerview update
                 OneFragment fragment = (OneFragment) adapter.getRegisteredFragment(0);
                 fragment.updateCards();
-
-                //TODO Casting
-                //update currentlessons array 8!!!!! potentially inefficient
-                ArrayList<SportsLesson> arrayList = (ArrayList<SportsLesson>)currentLessons;
-                helperClass.saveArray(getApplicationContext(),arrayList,"currentLessons");
+                helperClass.saveArray(getApplicationContext(),currentLessons,"currentLessons");
             }
         });
     }
@@ -107,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         //TODO add settings button for beer
 
         if ( helperClass.beerQuestion(beerString)){
-            return new SportsLesson(getApplicationContext(), "Beer");
+            return new SportsLesson(getApplicationContext(), "Beer","currentLessons");
 
         }else {
             //Get lesson
@@ -118,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
             Random r = new Random();
             int i = r.nextInt(max - min + 1) + min;
 
-            return new SportsLesson(getApplicationContext(), possibleLessons[i]);
+            return new SportsLesson(getApplicationContext(), possibleLessons[i],"currentLessons");
         }
     }
 

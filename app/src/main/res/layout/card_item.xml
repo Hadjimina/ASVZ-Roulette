@@ -44,14 +44,14 @@ android:layout_margin="8dp">
         android:textSize="14sp" />
 
     <Button
+        android:text="Done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttonDone"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/description"
         android:padding="8dp"
         android:gravity="left"
-        android:text="Done"
+
         />
 
     <Button
@@ -61,8 +61,8 @@ android:layout_margin="8dp">
         android:id="@+id/buttonBlacklist"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:gravity="right"
         android:padding="8dp"
+        android:gravity="right"
         />
 
 </RelativeLayout>
