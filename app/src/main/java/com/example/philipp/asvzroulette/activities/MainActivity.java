@@ -1,4 +1,4 @@
-package com.example.philipp.asvzroulette;
+package com.example.philipp.asvzroulette.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,6 +20,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.philipp.asvzroulette.helper.HelperClass;
+import com.example.philipp.asvzroulette.fragments.OneFragment;
+import com.example.philipp.asvzroulette.R;
+import com.example.philipp.asvzroulette.javaClassFiles.SportsLesson;
+import com.example.philipp.asvzroulette.fragments.ThreeFragment;
+import com.example.philipp.asvzroulette.fragments.TwoFragment;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -38,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
     private ViewPagerAdapter adapter;
     private ArrayList<SportsLesson> currentLessons,blacklistLessons,doneLessons;
     private String beerString;
+    private HelperClass helperClass;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +62,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //get Helper class object
-        final HelperClass helperClass = new HelperClass();
+        this.helperClass = new HelperClass();
+
+
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -98,9 +109,24 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //Helper function to pass CurrentLessons to "OneFragmen"
+    //Save currentLesson,BlackList & DoneLessons onPause
+    @Override
+    protected void onPause() {
+        super.onPause();
+        helperClass.saveArray(getApplicationContext(),currentLessons,"currentLessons");
+        helperClass.saveArray(getApplicationContext(),blacklistLessons,"blacklistLessons");
+        helperClass.saveArray(getApplicationContext(),doneLessons,"doneLessons");
+    }
+
+    //Helper functions to pass Lessons to Fragments
     public ArrayList<SportsLesson> getCurrentLessons() {
         return currentLessons;
+    }
+    public ArrayList<SportsLesson> getDoneLessons() {
+        return doneLessons;
+    }
+    public ArrayList<SportsLesson> getBlacklistLessons() {
+        return blacklistLessons;
     }
 
     //Generate random lesson

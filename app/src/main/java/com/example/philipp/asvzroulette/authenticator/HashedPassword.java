@@ -1,4 +1,4 @@
-package com.example.philipp.asvzroulette;
+package com.example.philipp.asvzroulette.authenticator;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -14,7 +14,7 @@ import java.util.Random;
 public class HashedPassword {
 
     private String hashedPassword;
-    final String salt;
+    private final String salt;
 
     public HashedPassword(String password){
         MessageDigest md = null;

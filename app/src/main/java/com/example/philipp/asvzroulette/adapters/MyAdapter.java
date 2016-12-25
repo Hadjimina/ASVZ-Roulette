@@ -1,4 +1,4 @@
-package com.example.philipp.asvzroulette;
+package com.example.philipp.asvzroulette.adapters;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,14 +8,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.philipp.asvzroulette.R;
+import com.example.philipp.asvzroulette.javaClassFiles.SportsLesson;
+
 import java.util.ArrayList;
-import java.util.Iterator;
 
 
-class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
-    static ArrayList<SportsLesson> mDataset;
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+    private ArrayList<SportsLesson> mDataset;
 
-    static class MyViewHolder extends RecyclerView.ViewHolder {
+    class MyViewHolder extends RecyclerView.ViewHolder {
         CardView mCardView;
         TextView mTextViewTitle,mTextViewDesc;
         ImageView mImageView;
@@ -36,27 +38,24 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 public void onClick(View v) {
                     //Get Blacklist
 
-                    //TODO remove item from currenLesson& put into Blacklist& update current list
+                    //TODO put removed item into Blacklist
                     String lessonName = (String) mTextViewTitle.getText();
-                    Iterator<SportsLesson> iter = mDataset.iterator();
-                    while (iter.hasNext()){
-                        if (iter.next().title == lessonName){
-                            mDataset.remove(iter.next());
-                        }
-                    }
+                    removeAndUpdateData(lessonName);
                 }
             });
 
             mButtonDone.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //change type of lesson
+                    //TODO put removed item into DoneList
+                    String lessonName = (String) mTextViewTitle.getText();
+                    removeAndUpdateData(lessonName);
                 }
             });
         }
     }
 
-    MyAdapter(ArrayList<SportsLesson>myDataset) {
+    public MyAdapter(ArrayList<SportsLesson>myDataset) {
         mDataset = myDataset;
     }
 
@@ -82,5 +81,20 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public int getItemCount() {
         return mDataset.size();
+    }
+
+    private void removeAndUpdateData(String itemToRemove){
+        ArrayList<SportsLesson> listCopy = mDataset;
+
+
+        for (int i = 0; i < mDataset.size(); i++){
+            if(listCopy.get(i).title.equals(itemToRemove)){
+                listCopy.remove(i);
+            }
+        }
+
+
+        mDataset = listCopy;
+        notifyDataSetChanged();
     }
 }

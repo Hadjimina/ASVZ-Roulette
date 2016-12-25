@@ -1,8 +1,6 @@
-package com.example.philipp.asvzroulette;
+package com.example.philipp.asvzroulette.javaClassFiles;
 
-/**
- * Created by david on 13.12.16.
- */
+import com.example.philipp.asvzroulette.authenticator.HashedPassword;
 
 public class User {
 

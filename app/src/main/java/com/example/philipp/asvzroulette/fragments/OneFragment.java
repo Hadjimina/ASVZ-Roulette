@@ -1,21 +1,25 @@
-package com.example.philipp.asvzroulette;
+package com.example.philipp.asvzroulette.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.philipp.asvzroulette.R;
+import com.example.philipp.asvzroulette.activities.MainActivity;
+import com.example.philipp.asvzroulette.adapters.MyAdapter;
+import com.example.philipp.asvzroulette.javaClassFiles.SportsLesson;
 
 import java.util.ArrayList;
 
 
 public class OneFragment extends Fragment{
 
-    private ArrayList<SportsLesson> currentLessons;
-    private MyAdapter adapter;
+    public ArrayList<SportsLesson> currentLessons;
+    public MyAdapter adapter;
     public OneFragment() {
         // Required empty public constructor
     }
@@ -52,13 +56,11 @@ public class OneFragment extends Fragment{
 
     //update currentLessons list & notify adapter of the change
     public void updateCards(){
-
-
         //get currentLessons data from MainActivity
         MainActivity activity = (MainActivity) getActivity();
         currentLessons = activity.getCurrentLessons();
 
-        Log.v("lessons",currentLessons.toString());
+
 
         adapter.notifyDataSetChanged();
 

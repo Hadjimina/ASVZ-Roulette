@@ -1,7 +1,9 @@
-package com.example.philipp.asvzroulette;
+package com.example.philipp.asvzroulette.helper;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+
+import com.example.philipp.asvzroulette.javaClassFiles.SportsLesson;
 
 import java.util.ArrayList;
 import java.util.Random;

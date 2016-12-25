@@ -1,4 +1,4 @@
-package com.example.philipp.asvzroulette;
+package com.example.philipp.asvzroulette.activities;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
+
+import com.example.philipp.asvzroulette.R;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -55,6 +57,6 @@ public class SettingsActivity extends AppCompatActivity {
             Log.v("Settings","false");
             editor.putString("beer", "false");
         }
-        editor.commit();
+        editor.apply();
     }
 }
